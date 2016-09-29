@@ -10,7 +10,7 @@
 + text -- Must be text
 + number -- Must be numeric
 + dataIsValid -- Field is a valid date
-+ min_N -- valie must be greater than given length(N)
++ min_N -- Value must be greater than given length(N)
 + max_N -- String must be less than given length(N)
 
 */
