@@ -1,5 +1,21 @@
+/* 
+################    SUPER VALIDATION LIBRARY   #######################
+    Usage :
+    Usage is simple and straightforward. Just add the name of the rule to the data-walid of the field.
+    Example :
+    <input type="text" data-walid="required text"/>
+
+---- Validation Rules ---
++ requred -- Required field
++ text -- Must be text
++ number -- Must be numeric
++ dataIsValid -- Field is a valid date
++ min_N -- valie must be greater than given length(N)
++ max_N -- String must be less than given length(N)
+
+*/
 $(document).ready(function() {
-    // Start validate form
+    // Start validation at the moment of sending form
     $('form').on('submit', function(e) {
         e.preventDefault();
         var fields = $(this).find('input, textarea, select'); // get all controls
