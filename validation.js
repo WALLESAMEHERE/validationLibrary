@@ -6,7 +6,7 @@
     <input type="text" data-walid="required text"/>
 
 ---- Validation Rules ---
-+ requred -- Required field
++ required -- Required field
 + text -- Must be text
 + number -- Must be numeric
 + dataIsValid -- Field is a valid date
