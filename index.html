@@ -1,0 +1,44 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>efi3</title>
+  </head>
+  <body>
+     <form id="myForm">
+      <label for="first_name">Twoje Imię</label>
+      <input type="text" name="first_name" id="first_name" placeholder="Twoje Imie" data-walid="required text min_3 max_15"/>
+      <div class="inputErrorMsg"></div>
+      <hr>
+      <label for="pesel">Twój Pesel</label>
+      <input type="text" name="pesel" id="pesel" placeholder="Twój pesel" data-walid="required number"/><div class="inputErrorMsg"></div>
+      <hr>
+      <label for="birth">Data urodzenia</label>
+      <input type="text" name="birth" id="birth" placeholder="Twoja data urodzenia w formacie (yyyy-mm-dd)" data-walid="required dataIsValid"/>
+      <div class="inputErrorMsg"></div>
+      <hr>
+      <label for="day">Jaki mamy dzisiaj dzień?</label>
+      <select id="day" data-walid="urBoot">
+        <option value="poniedzialek">poniedzialek</option>
+        <option value="wtorek">wtorek</option>
+        <option value="sroda">sroda</option>
+        <option value="czwartek">czwartek</option>
+        <option value="piatek">piatek</option>
+        <option value="sobota">sobota</option>
+        <option value="niedziela">niedziela</option>
+      </select>
+      <div class="inputErrorMsg"></div>
+      <hr>
+      <button type="submit" id="send">SEND</button>
+    </form>
+    <div class="blad"></div>
+     <script src="jquery.js"></script>
+     <script type="text/javascript" src="validation.js"></script>
+
+ 
+  </body>
+</html>

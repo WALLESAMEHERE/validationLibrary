@@ -1,0 +1,15 @@
+.invalid{
+	border:1px solid red;
+}
+.valid{
+	border:1px solid blue;
+}
+.blad{
+	color:red;
+	font-size: 1.5em;
+}
+.inputErrorMsg{
+	color:red;
+	font-size: 1em;
+	font-style: italic;
+}
