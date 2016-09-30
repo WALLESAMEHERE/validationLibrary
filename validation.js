@@ -34,7 +34,7 @@ $(document).ready(function() {
                 inputTab.push(start(fieldValue, ruleName, validRule, field)); // push true / false to array of validation rules 
                 // condition if rule is true +1 to attribute result
                 if (inputTab[j] === true) {
-                    inputscore++; 
+                    inputscore++;
                 }
             }
             // condition - if all rules from inuput == true from attribute rule - +1 to global result of this field
@@ -54,11 +54,11 @@ $(document).ready(function() {
         }
     });
     // function with validation rules
-    function start(input, atrr, data, glob) {
+    function start(value, attr, ruleName, field) {
         var result = true;
         var regula = {
             required: function() {
-                if (input == "") {
+                if (value == "") {
                     $('.blad').html('Wypełnij formularz');
                     return false;
                 } else {
@@ -68,18 +68,18 @@ $(document).ready(function() {
             },
             text: function() {
                 let reg = /^[a-zA-Z]+$/;
-                if (!input.match(reg)) {
-                    $(glob).next('.inputErrorMsg').html('wprowadz tylko tekst');
+                if (!value.match(reg)) {
+                    $(field).next('.inputErrorMsg').html('wprowadz tylko tekst');
                     return false;
                 } else {
-                    $(glob).next('.inputErrorMsg').html('');
+                    $(field).next('.inputErrorMsg').html('');
                     return true;
                 };
             },
             number: function() {
-                let stringTonumber = parseInt(input);
+                let stringTonumber = parseInt(value);
                 if (isNaN(stringTonumber)) {
-                    $(glob).next('.inputErrorMsg').html('wprowadz numer');
+                    $(field).next('.inputErrorMsg').html('wprowadz numer');
                     return false;
                 } else {
                     return true;
@@ -87,10 +87,10 @@ $(document).ready(function() {
             },
             dataIsValid: function() {
                 var reg = /^\d{4}-\d{1,2}-\d{1,2}$/;
-                if (!input.match(reg)) {
-                    $(glob).next('.inputErrorMsg').html('zly format daty yyyy-mm-dd');
+                if (!value.match(reg)) {
+                    $(field).next('.inputErrorMsg').html('zly format daty yyyy-mm-dd');
                     return false;
-                } else {     
+                } else {
                     return true;
                 };
             },
@@ -106,40 +106,41 @@ $(document).ready(function() {
                 );
                 var d = new Date();
                 var dayName = gsDayNames[d.getDay()];
-                if (input == dayName) {
-                    $(glob).next('.inputErrorMsg').html('');
+                if (value == dayName) {
+                    $(field).next('.inputErrorMsg').html('');
                     return true;
                 } else {
-                    $(glob).next('.inputErrorMsg').html('wybierz dzisiejszy dzień');
+                    $(field).next('.inputErrorMsg').html('wybierz dzisiejszy dzień');
                     return false;
                 }
             },
             min: function() {
-                let numb = data.replace(/[^0-9]/g, '');
-                if (input.length < numb) {
-                    $(glob).next('.inputErrorMsg').html('wprowadz min 3 znaki');
+                let numb = ruleName.replace(/[^0-9]/g, '');
+                if (value.length < numb) {
+                    $(field).next('.inputErrorMsg').html('wprowadz min 3 znaki');
                     return false;
                 } else {
                     return true;
                 }
             },
             max: function() {
-                let numb = data.replace(/[^0-9]/g, '');
-                if (input.length > numb) {
-                    $(glob).next('.inputErrorMsg').html('wprowadz max 15 znaków');
+                let numb = ruleName.replace(/[^0-9]/g, '');
+                if (value.length > numb) {
+                    $(field).next('.inputErrorMsg').html('wprowadz max 15 znaków');
                     return false;
                 } else {
                     return true;
                 }
             }
         }
-        process(regula[atrr], regula);
+        process(regula[attr], regula);
         // condition - return true or false from valid rules
-        if (process(regula[atrr], regula) == false) {
-                var result = false;
-        } 
+        if (process(regula[attr], regula) == false) {
+            var result = false;
+        }
         return result;
     }
+
     function process(callback, obj) {
         var result = true;
         if (callback('return') == true) {
