@@ -4,7 +4,7 @@
 .valid{
 	border:1px solid blue;
 }
-.blad{
+.errorMsg{
 	color:red;
 	font-size: 1.5em;
 }
