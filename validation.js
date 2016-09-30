@@ -54,7 +54,7 @@ $(document).ready(function() {
         }
     });
     // function with validation rules
-    function start(value, attr, ruleName, field) {
+    function start(value, rulename, attribute, field) {
         var result = true;
         var rule = {
             required: function() {
@@ -115,7 +115,7 @@ $(document).ready(function() {
                 }
             },
             min: function() {
-                let numb = ruleName.replace(/[^0-9]/g, '');
+                let numb = attribute.replace(/[^0-9]/g, '');
                 if (value.length < numb) {
                     $(field).next('.inputErrorMsg').html('wprowadz min 3 znaki');
                     return false;
@@ -124,7 +124,7 @@ $(document).ready(function() {
                 }
             },
             max: function() {
-                let numb = ruleName.replace(/[^0-9]/g, '');
+                let numb = attribute.replace(/[^0-9]/g, '');
                 if (value.length > numb) {
                     $(field).next('.inputErrorMsg').html('wprowadz max 15 znaków');
                     return false;
@@ -133,9 +133,9 @@ $(document).ready(function() {
                 }
             }
         }
-        process(rule[attr], rule);
+        process(rule[rulename], rule);
         // condition - return true or false from valid rules
-        if (process(rule[attr], rule) == false) {
+        if (process(rule[rulename], rule) == false) {
             var result = false;
         }
         return result;
