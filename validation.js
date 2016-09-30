@@ -56,7 +56,7 @@ $(document).ready(function() {
     // function with validation rules
     function start(value, attr, ruleName, field) {
         var result = true;
-        var regula = {
+        var rule = {
             required: function() {
                 if (value == "") {
                     $('.blad').html('Wypełnij formularz');
@@ -133,9 +133,9 @@ $(document).ready(function() {
                 }
             }
         }
-        process(regula[attr], regula);
+        process(rule[attr], rule);
         // condition - return true or false from valid rules
-        if (process(regula[attr], regula) == false) {
+        if (process(rule[attr], rule) == false) {
             var result = false;
         }
         return result;
