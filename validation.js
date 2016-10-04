@@ -94,7 +94,7 @@ $(document).ready(function() {
                     return true;
                 };
             },
-            urBoot: function() {
+            urBot: function() {
                 var gsDayNames = new Array(
                     'niedziela',
                     'poniedzialek',
@@ -117,7 +117,7 @@ $(document).ready(function() {
             min: function() {
                 let numb = attribute.replace(/[^0-9]/g, '');
                 if (value.length < numb) {
-                    $(field).next('.inputErrorMsg').html('wprowadz min 3 znaki');
+                    $(field).next('.inputErrorMsg').html('wprowadz min ' + numb + ' znaki');
                     return false;
                 } else {
                     return true;
@@ -126,7 +126,7 @@ $(document).ready(function() {
             max: function() {
                 let numb = attribute.replace(/[^0-9]/g, '');
                 if (value.length > numb) {
-                    $(field).next('.inputErrorMsg').html('wprowadz max 15 znaków');
+                    $(field).next('.inputErrorMsg').html('wprowadz max ' + numb + ' znaków');
                     return false;
                 } else {
                     return true;
